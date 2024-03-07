@@ -5,6 +5,7 @@ function Homepage() {
       {/* Welcome to my Anime Streamer */}
       <img src="src/assets/images/anime101.png"></img>
     </div>
+    
 
 
   );

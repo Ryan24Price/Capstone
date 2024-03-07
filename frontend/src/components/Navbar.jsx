@@ -13,6 +13,9 @@ export default function NavBar() {
           <Button color="inherit" component={NavLink} to="/login">
             Login
           </Button>
+          <Button color="inherit" component={NavLink} to="/SignUp">
+            Sign Up
+          </Button>
           <Button color="inherit" component={NavLink} to="/profile">
             Profile
           </Button>
@@ -27,3 +30,5 @@ export default function NavBar() {
     </Box>
   );
 }
+
+
