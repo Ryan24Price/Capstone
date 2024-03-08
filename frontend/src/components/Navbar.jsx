@@ -5,8 +5,8 @@ import { Toolbar } from "@mui/material";
 export default function NavBar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="fixed" style={{ background: "#991E00" }}>
-        <Toolbar>
+      <AppBar position="fixed" style={{ background: "#991E00", display:"flex", flexDirection:"row"}}>
+        <Toolbar style={{width: "90%" }}>
           <Button color="inherit" component={NavLink} to="/">
             Home
           </Button>
@@ -24,6 +24,11 @@ export default function NavBar() {
           </Button>
           <Button color="inherit" component={NavLink} to="/forum">
             Forum
+          </Button>
+        </Toolbar>
+        <Toolbar>
+          <Button color="inherit" component={NavLink} to="/">
+            logout
           </Button>
         </Toolbar>
       </AppBar>
