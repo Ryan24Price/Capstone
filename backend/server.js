@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 const app = express();
 
 require("dotenv").config();
@@ -6,13 +7,19 @@ require("dotenv").config();
 
 let dbConnect = require("./dbConnect")
 let userRoutes = require('./routes/userRoutes')
+let postRoutes = require('./routes/postRoutes')
 
 app.use(express.json());
 
+app.use(cors());
+
 app.use('/api/users', userRoutes)
 
+app.use('/api/posts', postRoutes)
+
+
 app.get("/", (req, res) => {
-res.json({ message: "Welcome to my MongoDB application." });
+res.json({ message: "Welcome to my Anime Streamer." });
 });
 
 // set port, listen for requests

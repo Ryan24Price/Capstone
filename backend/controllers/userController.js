@@ -44,10 +44,36 @@ const deleteUser = (req, res) => {
     });
 };
 
+const loginUser = (req, res) => {
+  console.log("trying to login a user", req.body);
+  Models.User.findOne({ email: req.body.email })
+    .then((data) => {
+      console.log(data);
+      if (data) {
+        const dbPassword = data.password;
+        const reqPassword = req.body.password;
+        if (dbPassword === reqPassword) {
+          console.log("password is correct");
+          res.send({ result: 200, data: data });
+        } else {
+          res.status(400).send({ result: 400, data: "wrong password" });
+        }
+      } else {
+        res.status(404).send({ result: 404, data: "user not found" });
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+      res.send({ result: 500, error: err.message });
+    });
+};
+ 
 module.exports = {
   getUsers,
   createUser,
   updateUser,
-  deleteUser
+  deleteUser,
+  loginUser
 };
+
 

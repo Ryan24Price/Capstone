@@ -1,6 +1,6 @@
 module.exports = {
-    userController: require('./userController')
-    // postController: require('./userController')
+    userController: require('./userController'),
+    postController: require('./postController')
     }
 
 

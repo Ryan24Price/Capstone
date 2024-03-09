@@ -11,7 +11,7 @@ app.use(express.json());
 app.use('/api/users', userRoutes)
 
 app.use('/', (req, res) => {
-    res.send({ status: 200, message: "Welcome to my capstone Page" })
+    res.send({ status: 200, message: "Welcome to my Anime Streamer" })
 });
 
 app.listen(PORT, () => {
