@@ -68,10 +68,10 @@ To set up Anime Streamer on your local machine, follow these steps:
 
 ## Technology Stack
 
-**Frontend:** React JS, HTML, CSS, JavaScript
-**Backend:** Express.js framework on Node.js for RESTful API services.
-**Database:** MongoDB for storing user,and other data.
-**UI Components:** Material-UI
+1. **Frontend:** React JS, HTML, CSS, JavaScript
+2. **Backend:** Express.js framework on Node.js for RESTful API services.
+3. **Database:** MongoDB for storing user,and other data.
+4. **UI Components:** Material-UI
 
 Enjoy streaming your favorite anime on Anime Streamer!
 
