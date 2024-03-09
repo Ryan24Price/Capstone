@@ -34,23 +34,23 @@ To set up Anime Streamer on your local machine, follow these steps:
 
 1. **Clone the Repository:**
    ```
-   git clone https://github.com/Ryan24Price/Mini-Project3.git
+   git clone https://github.com/Ryan24Price/Capstone.git
    ```
 
 2. **Install Dependencies:**
    ```
    cd into React for frontend
    cd into Server for backend
-   npm install
+   npm install Express
    ```
 
 3. **Start the Server:**
    ```
-   npm start
+   npm run dev
    ```
 
 4. **Access the Website:**
-   Open your web browser and go to `http://localhost:8080` to access Anime Streamer.
+   Open your web browser and go to `http://localhost:5173` to access Anime Streamer.
 
 ## Usage:
 
@@ -66,6 +66,12 @@ To set up Anime Streamer on your local machine, follow these steps:
 3. **Update (PUT/PATCH):** Update/Put an existing resource on the server.
 4. **Delete (DELETE):** Delete an existing resource on the server.
 
+## Technology Stack
+
+**Frontend:** React JS, HTML, CSS, JavaScript
+**Backend:** Express.js framework on Node.js for RESTful API services.
+**Database:** MongoDB for storing user,and other data.
+**UI Components:** Material-UI
 
 Enjoy streaming your favorite anime on Anime Streamer!
 
