@@ -1,202 +1,385 @@
 import React, { useState } from "react";
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
+import Rating from '@mui/material/Rating';
+import StarIcon from '@mui/icons-material/Star';
+import Box from '@mui/material/Box';
 
 // Example array of anime information
-const animeList = [
-  {
-    id: 1,
-    title: "Attack on Titan",
-    image: "src/assets/images/attack on titan.jpg",
-    description: "Enter to view the Newest Releases.",
-  },
-  {
-    id: 2,
-    title: "Chainsaw Man",
-    image: "src/assets/images/chainsaw  man.jpg",
-    description: "Enter to view the Newest Releases.",
-  },
-  {
-    id: 3,
-    title: "Demon Slayer",
-    image: "src/assets/images/demon slayer.jpg",
-    description: "Enter to view the Newest Releases.",
-  },
-  {
-    id: 4,
-    title: "Hunter x Hunter",
-    image: "src/assets/images/hunter hunter.jpg",
-    description: "Enter to view the Newest Releases.",
-  },
-  {
-    id: 5,
-    title: "My Hero Academia",
-    image: "src/assets/images/my hero academia.jpg",
-    description: "Enter to view the Newest Releases.",
-  },
-  {
-    id: 6,
-    title: "Tokyo Ghoul",
-    image: "src/assets/images/tokyo ghoul.jpg",
-    description: "Enter to view the Newest Releases.",
-  },
-  {
-    id: 7,
-    title: "Death Note",
-    image: "src/assets/images/death note.jpg",
-    description: "Enter to view the Newest Releases.",
-  },
-  {
-    id: 8,
-    title: "Jujutsu Kaisen",
-    image: "src/assets/images/jujutsu kaisen.jpg",
-    description: "Enter to view the Newest Releases.",
-  },
-  {
-    id: 9,
-    title: "Dragon Ball Z",
-    image: "src/assets/images/dragon ball z.jpg",
-    description: "Enter to view the Newest Releases.",
-  },
-  {
-    id: 10,
-    title: "Mob Psycho 100",
-    image: "src/assets/images/mob.jpg",
-    description: "Enter to view the Newest Releases.",
-  },
-  {
-    id: 11,
-    title: "Bleach",
-    image: "src/assets/images/bleach.jpg",
-    description: "Enter to view the Newest Releases.",
-  },
-  {
-    id: 12,
-    title: "Ghost in the Shell",
-    image: "src/assets/images/ghost in the shell.jpg",
-    description: "Enter to view the Newest Releases.",
-  },
-];
-
-function AnimeList() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  // Calculate the end index for slicing, ensuring it doesn't go out of bounds
-  const endIndex = Math.min(currentIndex + 3, animeList.length);
-
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % animeList.length);
-  };
-
-  const handlePrev = () => {
-    setCurrentIndex(
-      (prevIndex) => (prevIndex - 1 + animeList.length) % animeList.length
-    );
-  };
-
-  // Calculate indexes for the left, middle, and right images
-  const leftIndex = (currentIndex - 1 + animeList.length) % animeList.length;
-  const rightIndex = (currentIndex + 1) % animeList.length;
-
-  const getImageStyle = (index) => {
-    let style = {
-      margin: ' 0 .5rem'
-    }
-    if (index === currentIndex) {
-      // Middle image
-      return { ...style, height: '400px', width: '250px', objectFit: 'cover' };
-    } else {
-      // Left and right images
-      return { ...style,  height: '350px', width: '200px', objectFit: 'cover' };
-    }
-  };
-
-  const displayAnime = animeList.slice(currentIndex, endIndex);
-
-  const carouselStyle = {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    marginBottom: "20px", // Space between carousel and full list
-  };
-
-  const buttonStyle = {
-    cursor: "pointer",
-    padding: "10px",
-    margin: "0 10px",
-    background: "blue",
-    color: "white",
-    border: "none",
-  };
-
-  const imageStyle = {
-    width: "250px", // Adjusted for responsive design
-    height: "auto",
-    objectFit: "cover",
-  };
-
-  const rowStyle = {
-    display: "flex",
-    flexWrap: "wrap",
-    justifyContent: "center",
-  };
-
-  const colStyle = {
-    maxWidth: "50%", // Adjust for 2 columns layout
-    flex: "0 0 50%",
-    padding: "1rem",
-  };
-
-  // const caraImage = {
-  //   heigh
-  // }
-
+const AnimeList = () => {
+  
   return (
-    <>
-      <div style={carouselStyle}>
-        <button onClick={handlePrev} style={buttonStyle}>{"<"}</button>
-        
-        {/* Left image */}
-        <img
-          src={animeList[leftIndex].image}
-          alt={animeList[leftIndex].title}
-          style={getImageStyle(leftIndex)}
+    
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Bootstrap</title>
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+          crossorigin="anonymous"
         />
+        <style>
+          {`
+          body {
+            font-family: Arial, Helvetica, sans-serif;
+          }
 
-        {/* Middle (current) image */}
-        <img
-          src={animeList[currentIndex].image}
-          alt={animeList[currentIndex].title}
-          style={getImageStyle(currentIndex)}
-        />
+          .flip-card {
+            background-color: transparent;
+            width: 300px;
+            height: 300px;
+            perspective: 1000px;
+          }
 
-        {/* Right image */}
-        <img
-          src={animeList[rightIndex].image}
-          alt={animeList[rightIndex].title}
-          style={getImageStyle(rightIndex)}
-        />
-        
-        <button onClick={handleNext} style={buttonStyle}>{">"}</button>
-      </div>
-      <div className="row g-4" style={rowStyle}>
-        {animeList.map((anime) => (
-          <div className="col" key={anime.id} style={colStyle}>
-            <div className="card h-100">
-              <img
-                src={anime.image}
-                alt={anime.title}
-                className="card-img-top"
-                style={imageStyle}
-              />
-              <div className="card-body">
-                <h5 className="card-title">{anime.title}</h5>
-                <p className="card-text">{anime.description}</p>
+          .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+          }
+
+          .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+          }
+
+          .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+          }
+
+          .flip-card-front {
+            background-color: #bbb;
+            color: black;
+          }
+
+          .flip-card-back {
+            background-color: black;
+            color: white;
+            transform: rotateY(180deg);
+          }
+          `}
+        </style>
+      </head>
+      <h1>Anime</h1>
+
+      <marquee>Welcome To <i>AnimeStreamer</i>.com<sup>&reg;</sup></marquee>
+    <label class="online">Stream Latest Anime Now!</label>
+
+      <body>
+        <div className="row row-cols-1 row-cols-md-4 g-4">
+          <div className="col">
+            <div className="card h-0 flip-card">
+              <div className="flip-card-inner">
+                <div className="flip-card-front">
+                  <img
+                    src="https://placehold.co/320"
+                    className="card-img-top"
+                    alt="Tokyo Ghoul"
+                    style={{ width: "250px", height: "250px" }}
+                  />
+                </div>
+                <div className="flip-card-back">
+                  <h4>Tokyo Ghoul</h4>
+                  <p>A Tokyo college student is attacked by a ghoul, a superpowered human who feeds on human flesh.</p>
+                  <a href="https://youtu.be/pwN4GmQHx-w?si=xGY_SxQS7LFFYslu" class="btn btn-primary">
+                    Trailer
+                  </a>
+                  <Button variant="contained">Play</Button>
+                  <Stack spacing={1}>
+                  <Rating name="size-Large" defaultValue={4} size="Large" />
+                  </Stack>
+                </div>
               </div>
             </div>
           </div>
-        ))}
-      </div>
-    </>
+          <div className="col">
+            <div className="card h-0 flip-card">
+              <div className="flip-card-inner">
+                <div className="flip-card-front">
+                  <img
+                    src="https://placehold.co/320"
+                    className="card-img-top"
+                    alt="Jujutsu Kaisen"
+                    style={{ width: "250px", height: "250px" }}
+                  />
+                </div>
+                <div className="flip-card-back">
+                  <h4>Jujutsu Kaisen</h4>
+                  <p>Student with super human demonic abilities</p>
+                  <a href="https://youtu.be/tfMy7uUDsAQ?si=MNf164cmPpZef5WS" class="btn btn-primary">
+                    Trailer
+                  </a>
+                  <Button variant="contained">Play</Button>
+                  <Stack spacing={1}>
+                  <Rating name="size-Large" defaultValue={5} size="Large" />
+                  </Stack>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="col">
+            <div className="card h-0 flip-card">
+              <div className="flip-card-inner">
+                <div className="flip-card-front">
+                  <img
+                    src="https://placehold.co/320"
+                    className="card-img-top"
+                    alt="Attack on Titan"
+                    style={{ width: "250px", height: "250px" }}
+                  />
+                </div>
+                <div className="flip-card-back">
+                <h4>Attack on Titan</h4>
+                  <p>Eren Jaeger vows to cleanse the earth of the giant humanoid Titans that have brought humanity to the brink of extinction</p>
+                  <a href="https://youtu.be/bT9csxkth8g?si=dByRjEsHYMQFagdq" class="btn btn-primary">
+                    Trailer
+                  </a>
+                  <Button variant="contained">Play</Button>
+                  <Stack spacing={1}>
+                  <Rating name="size-Large" defaultValue={3} size="Large" />
+                  </Stack>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="col">
+            <div className="card h-0 flip-card">
+              <div className="flip-card-inner">
+                <div className="flip-card-front">
+                  <img
+                    src="https://placehold.co/320"
+                    className="card-img-top"
+                    alt="Demon Slayer"
+                    style={{ width: "250px", height: "250px" }}
+                  />
+                </div>
+                <div className="flip-card-back">
+                  <h4>Demon Slayer</h4>
+                  <p>Tanjiro and his sister Nezuko, who is turning into a demon slowly. Tanjiro sets out to become a demon slayer to avenge his family and cure his sister.</p>
+                  <a href="https://youtu.be/nxE0Xp0ARcM?si=BerITHdWX6X3wWxL" class="btn btn-primary">
+                    Trailer
+                  </a>
+                  <Button variant="contained">Play</Button>
+                  <Stack spacing={1}>
+                  <Rating name="size-Large" defaultValue={4} size="Large" />
+                  </Stack>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="col">
+            <div className="card h-0 flip-card">
+              <div className="flip-card-inner">
+                <div className="flip-card-front">
+                  <img
+                    src="https://placehold.co/320"
+                    className="card-img-top"
+                    alt="One Punch Man"
+                    style={{ width: "250px", height: "250px" }}
+                  />
+                </div>
+                <div className="flip-card-back">
+                  <h4>One Punch Man</h4>
+                  <p>The story of Saitama, a hero that does it just for fun & can defeat his enemies with a single punch.</p>
+                  <a href="https://youtu.be/YUH1mfV3IEU?si=k7TUt9_iNPIWqoCM" class="btn btn-primary">
+                    Trailer
+                  </a>
+                  <Button variant="contained">Play</Button>
+                  <Stack spacing={1}>
+                  <Rating name="size-Large" defaultValue={5} size="Large" />
+                  </Stack>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="col">
+            <div className="card h-0 flip-card">
+              <div className="flip-card-inner">
+                <div className="flip-card-front">
+                  <img
+                    src="https://placehold.co/320"
+                    className="card-img-top"
+                    alt="One Piece"
+                    style={{ width: "250px", height: "250px" }}
+                  />
+                </div>
+                <div className="flip-card-back">
+                  <h4>One Piece</h4>
+                  <p>Follows the adventures of Monkey D. Luffy and his pirate crew in order to find the greatest treasure ever left by the legendary Pirate, Gold Roger.</p>
+                  <a href="https://youtu.be/TbHtbzAnZJ4?si=POSgmGDUnohuC7Y2" class="btn btn-primary">
+                    Trailer
+                  </a>
+                  <Button variant="contained">Play</Button>
+                  <Stack spacing={1}>
+                  <Rating name="size-Large" defaultValue={4} size="Large" />
+                  </Stack>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="col">
+            <div className="card h-0 flip-card">
+              <div className="flip-card-inner">
+                <div className="flip-card-front">
+                  <img
+                    src="https://placehold.co/320"
+                    className="card-img-top"
+                    alt="Hunter x Hunter"
+                    style={{ width: "250px", height: "250px" }}
+                  />
+                </div>
+                <div className="flip-card-back">
+                  <h4>Hunter x Hunter</h4>
+                  <p>Gon Freecss aspires to become a Hunter, an exceptional being capable of greatness. With his friends and his potential.</p>
+                  <a href="https://youtu.be/3k2tl78bfjk?si=yjhEphod7HvXiYJA" class="btn btn-primary">
+                    Trailer
+                  </a>
+                  <Button variant="contained">Play</Button>
+                  <Stack spacing={1}>
+                  <Rating name="size-Large" defaultValue={5} size="Large" />
+                  </Stack>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="col">
+            <div className="card h-0 flip-card">
+              <div className="flip-card-inner">
+                <div className="flip-card-front">
+                  <img
+                    src="https://placehold.co/320"
+                    className="card-img-top"
+                    alt="Naruto"
+                    style={{ width: "250px", height: "250px" }}
+                  />
+                </div>
+                <div className="flip-card-back">
+                  <h4>Naruto</h4>
+                  <p>Naruto Uzumaki, a mischievous adolescent ninja, struggles as he searches for recognition and dreams of becoming the Hokage.</p>
+                  <a href="https://youtu.be/yeUpnIKt6k4?si=D2FBKjSVd77Vs5SZ" class="btn btn-primary">
+                    Trailer
+                  </a>
+                  <Button variant="contained">Play</Button>
+                  <Stack spacing={1}>
+                  <Rating name="size-Large" defaultValue={5} size="Large" />
+                  </Stack>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="col">
+            <div className="card h-0 flip-card">
+              <div className="flip-card-inner">
+                <div className="flip-card-front">
+                  <img
+                    src="https://placehold.co/320"
+                    className="card-img-top"
+                    alt="Yuyu Hakusho"
+                    style={{ width: "250px", height: "250px" }}
+                  />
+                </div>
+                <div className="flip-card-back">
+                  <h4>Yuyu Hakusho</h4>
+                  <p></p>
+                  <a href="https://youtu.be/bGc1Na8mlw0?si=p1Q9OOcESfqRzX9W" class="btn btn-primary">
+                    Trailer
+                  </a>
+                  <Button variant="contained">Play</Button>
+                  <Stack spacing={1}>
+                  <Rating name="size-Large" defaultValue={2} size="Large" />
+                  </Stack>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="col">
+            <div className="card h-0 flip-card">
+              <div className="flip-card-inner">
+                <div className="flip-card-front">
+                  <img
+                    src="https://placehold.co/320"
+                    className="card-img-top"
+                    alt="My Hero Academia"
+                    style={{ width: "250px", height: "250px" }}
+                  />
+                </div>
+                <div className="flip-card-back">
+                  <h4>My Hero Academia</h4>
+                  <p></p>
+                  <a href="https://youtu.be/LqJQqcDQxBg?si=uacmgC65bdkRO9LS" class="btn btn-primary">
+                    Trailer
+                  </a>
+                  <Button variant="contained">Play</Button>
+                  <Stack spacing={1}>
+                  <Rating name="size-Large" defaultValue={4} size="Large" />
+                  </Stack>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="col">
+            <div className="card h-0 flip-card">
+              <div className="flip-card-inner">
+                <div className="flip-card-front">
+                  <img
+                    src="https://placehold.co/320"
+                    className="card-img-top"
+                    alt="Black Clover"
+                    style={{ width: "250px", height: "250px" }}
+                  />
+                </div>
+                <div className="flip-card-back">
+                  <h4>Black Clover</h4>
+                  <p></p>
+                  <a href="https://youtu.be/Wipd9hjjyp8?si=mD2nMSQKqnh4z3K5" class="btn btn-primary">
+                    Trailer
+                  </a>
+                  <Button variant="contained">Play</Button>
+                  <Stack spacing={1}>
+                  <Rating name="size-Large" defaultValue={3} size="Large" />
+                  </Stack>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="col">
+            <div className="card h-0 flip-card">
+              <div className="flip-card-inner">
+                <div className="flip-card-front">
+                  <img
+                    src="https://placehold.co/320"
+                    className="card-img-top"
+                    alt="Dragon Ball Z"
+                    style={{ width: "250px", height: "250px" }}
+                  />
+                </div>
+                <div className="flip-card-back">
+                  <h4>Dragon Ball Z</h4>
+                  <p></p>
+                  <a href="https://youtu.be/sxufB6DxXk0?si=2s5yyxPAMSfHraJ5" class="btn btn-primary">
+                    Trailer
+                  </a>
+                  <Button variant="contained">Play</Button>
+                  <Stack spacing={1}>
+                  <Rating name="size-Large" defaultValue={5} size="Large" />
+                  </Stack>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </body>
+    </html>
   );
-}
+};
 
 export default AnimeList;
