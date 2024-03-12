@@ -46,7 +46,7 @@ To set up Anime Streamer on your local machine, follow these steps:
 
 3. **Start the Server:**
    ```
-   npm run dev
+   npm run dev for both Frontend and Backend
    ```
 
 4. **Access the Website:**
@@ -72,6 +72,7 @@ To set up Anime Streamer on your local machine, follow these steps:
 2. **Backend:** Express.js framework on Node.js for RESTful API services.
 3. **Database:** MongoDB for storing user,and other data.
 4. **UI Components:** Material-UI
+5. **Testing:** used Postman for testing API calls
 
 Enjoy streaming your favorite anime on Anime Streamer!
 
