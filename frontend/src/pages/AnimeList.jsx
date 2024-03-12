@@ -4,6 +4,34 @@ import Button from "@mui/material/Button";
 import Rating from "@mui/material/Rating";
 import StarIcon from "@mui/icons-material/Star";
 import Box from "@mui/material/Box";
+import Carousel from 'react-material-ui-carousel';
+import { Image } from "@mui/icons-material";
+
+
+
+// Import images
+import image201 from "../assets/carousel/201.png";
+import image202 from "../assets/carousel/202.png";
+import image203 from "../assets/carousel/203.png";
+import image204 from "../assets/carousel/204.png";
+import image205 from "../assets/carousel/205.png";
+// import image206 from "../assets/carousel/206.png";
+import image207 from "../assets/carousel/207.png";
+import image208 from "../assets/carousel/208.png";
+import image209 from "../assets/carousel/209.png";
+import image210 from "../assets/carousel/210.png";
+import image211 from "../assets/carousel/211.png";
+import image212 from "../assets/carousel/212.png";
+import image213 from "../assets/carousel/213.png";
+import image214 from "../assets/carousel/214.png";
+// import image215 from "../assets/carousel/215.png";
+// import image216 from "../assets/carousel/216.png";
+// import image217 from "../assets/carousel/217.png";
+// import image218 from "../assets/carousel/218.png";
+// import image219 from "../assets/carousel/219.png";
+import image220 from "../assets/carousel/220.png";
+
+
 
 // Example array of anime information
 const AnimeList = () => {
@@ -14,6 +42,31 @@ const AnimeList = () => {
       "top=100,left=250,height=400,width=600,channelmode=yes,fullscreen=yes,menubar=no,toolbar=no,location=no,status=no,scrollbars=no,noopener=no"
     );
   };
+
+  const images = [
+   
+    image201, // Using imported image
+    image202, // Using imported image
+    image203, // Using imported image
+    image204, // Using imported image
+    image205, // Using imported image
+    // image206, // Using imported image
+    image207, // Using imported image
+    image208, // Using imported image
+    image209, // Using imported image
+    image210, // Using imported image
+    image211, // Using imported image
+    image212, // Using imported image
+    image213, // Using imported image
+    image214, // Using imported image
+    // image215, // Using imported image
+    // image216, // Using imported image
+    // image217, // Using imported image
+    // image218, // Using imported image
+    // image219, // Using imported image
+    image220, // Using imported image
+  ];
+
 
   return (
     <html lang="en">
@@ -75,8 +128,14 @@ const AnimeList = () => {
           `}
         </style>
       </head>
+      <div>
+      <Carousel>
+        {images.map((image, i) => (
+          <img key={i} src={image} alt={`Anime ${i}`} style={{ width: "65%", height: "10%" }} />
+        ))}
+      </Carousel>
+      </div>
       <h1>Anime</h1>
-
       <marquee>
         Welcome To <i>AnimeStreamer</i>.com<sup>&reg;</sup>
       </marquee>
@@ -89,7 +148,7 @@ const AnimeList = () => {
               <div className="flip-card-inner">
                 <div className="flip-card-front">
                   <img
-                    src="https://placehold.co/320"
+                    src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.ign.com%2Farticles%2Fbest-anime-characters&psig=AOvVaw0_3bbEX6reNENVKag5o1Ge&ust=1710363549837000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCKiy__DO74QDFQAAAAAdAAAAABAE"
                     className="card-img-top"
                     alt="Tokyo Ghoul"
                     style={{ width: "250px", height: "250px" }}
@@ -125,7 +184,7 @@ const AnimeList = () => {
               <div className="flip-card-inner">
                 <div className="flip-card-front">
                   <img
-                    src="https://placehold.co/320"
+                    src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fthehoneycombers.com%2Fhong-kong%2Fbest-anime-series-to-watch%2F&psig=AOvVaw0_3bbEX6reNENVKag5o1Ge&ust=1710363549837000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCKiy__DO74QDFQAAAAAdAAAAABAI"
                     className="card-img-top"
                     alt="Jujutsu Kaisen"
                     style={{ width: "250px", height: "250px" }}
@@ -158,7 +217,7 @@ const AnimeList = () => {
               <div className="flip-card-inner">
                 <div className="flip-card-front">
                   <img
-                    src="https://placehold.co/320"
+                    src="../assets/images/bleach.jpg"
                     className="card-img-top"
                     alt="Attack on Titan"
                     style={{ width: "250px", height: "250px" }}
@@ -194,7 +253,7 @@ const AnimeList = () => {
               <div className="flip-card-inner">
                 <div className="flip-card-front">
                   <img
-                    src="https://placehold.co/320"
+                    src="../assets/images/death note.jpg"
                     className="card-img-top"
                     alt="Demon Slayer"
                     style={{ width: "250px", height: "250px" }}
@@ -511,6 +570,5 @@ const AnimeList = () => {
 };
 
 export default AnimeList;
-
 
 
