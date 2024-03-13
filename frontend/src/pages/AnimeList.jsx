@@ -61,13 +61,13 @@ const carouselImages = [
 // Example array of anime information
 const AnimeList = () => {
   const openTrailer = (url) => {
+    const trailerUrl = url + (url.includes('?') ? '&' : '?') + 'autoplay=1&fs=1';
     window.open(
-      url,
+      trailerUrl,
       "_blank",
-      "top=100,left=250,height=400,width=600,channelmode=yes,fullscreen=yes,menubar=no,toolbar=no,location=no,status=no,scrollbars=no,noopener=no"
+      "top=100,left=250,height=435,width=600,channelmode=yes,fullscreen=yes,menubar=no,toolbar=no,location=no,status=no,scrollbars=no,noopener=no"
     );
   };
-
   const images = [
     ...carouselImages,
     ...flipCardImages
@@ -88,7 +88,7 @@ const AnimeList = () => {
         />
         <style>
           {`
-          body {
+           body {
             font-family: Arial, Helvetica, sans-serif;
           }
 
@@ -107,11 +107,14 @@ const AnimeList = () => {
             transition: transform 0.6s;
             transform-style: preserve-3d;
             box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            /* Add red box shadow */
+            box-shadow: 0 0 10px red;
           }
 
           .flip-card:hover .flip-card-inner {
             transform: rotateY(180deg);
           }
+
 
           .flip-card-front, .flip-card-back {
             position: absolute;
@@ -177,7 +180,14 @@ const AnimeList = () => {
                     Trailer
                   </Button>
 
-                  <Button variant="contained">Play</Button>
+                  <Button variant="contained"
+                  onClick={() =>
+                      openTrailer(
+                        "https://youtu.be/mTPEctpA7Qk?si=ajQLjyhvWhW_As3u"
+                      )
+                    }
+                  >
+                  Play</Button>
                   <Stack spacing={1}>
                     <Rating name="size-Large" defaultValue={4} size="Large" />
                   </Stack>
@@ -209,7 +219,14 @@ const AnimeList = () => {
                     Trailer
                   </Button>
 
-                  <Button variant="contained">Play</Button>
+                  <Button  variant="contained"
+                    onClick={() =>
+                      openTrailer(
+                        "https://youtu.be/LTjH5JdxtOA?si=yFHQBA8o9qJSdEFc"
+                      )
+                    }
+                  >
+                    Play</Button>
                   <Stack spacing={1}>
                     <Rating name="size-Large" defaultValue={5} size="Large" />
                   </Stack>
@@ -245,7 +262,14 @@ const AnimeList = () => {
                     Trailer
                   </Button>
 
-                  <Button variant="contained">Play</Button>
+                  <Button variant="contained"
+                    onClick={() =>
+                      openTrailer(
+                        "https://youtu.be/HSnOygIoPG8?si=es8x02oDXlMAGApV"
+                      )
+                    }
+                  >
+                    Play</Button>
                   <Stack spacing={1}>
                     <Rating name="size-Large" defaultValue={3} size="Large" />
                   </Stack>
@@ -267,8 +291,7 @@ const AnimeList = () => {
                 <div className="flip-card-back">
                   <h4>Demon Slayer</h4>
                   <p>
-                    Tanjiro and his sister Nezuko, who is turning into a demon
-                    slowly. Tanjiro sets out to become a demon slayer to avenge
+                    Tanjiro sets out to become a demon slayer to avenge
                     his family and cure his sister.
                   </p>
                   <Button
@@ -282,7 +305,14 @@ const AnimeList = () => {
                     Trailer
                   </Button>
 
-                  <Button variant="contained">Play</Button>
+                  <Button  variant="contained"
+                    onClick={() =>
+                      openTrailer(
+                        "https://youtu.be/nxE0Xp0ARcM?si=BerITHdWX6X3wWxL"
+                      )
+                    }
+                  >
+                    Play</Button>
                   <Stack spacing={1}>
                     <Rating name="size-Large" defaultValue={4} size="Large" />
                   </Stack>
@@ -318,7 +348,14 @@ const AnimeList = () => {
                     Trailer
                   </Button>
 
-                  <Button variant="contained">Play</Button>
+                  <Button variant="contained"
+                    onClick={() =>
+                      openTrailer(
+                        "https://youtu.be/Ju8qnEMV9cQ?si=n_x9E1rddqZNgGhC"
+                      )
+                    }
+                  >
+                    Play</Button>
                   <Stack spacing={1}>
                     <Rating name="size-Large" defaultValue={5} size="Large" />
                   </Stack>
@@ -355,7 +392,14 @@ const AnimeList = () => {
                     Trailer
                   </Button>
 
-                  <Button variant="contained">Play</Button>
+                  <Button variant="contained"
+                    onClick={() =>
+                      openTrailer(
+                        "https://youtu.be/TbHtbzAnZJ4?si=POSgmGDUnohuC7Y2"
+                      )
+                    }
+                  >
+                    Play</Button>
                   <Stack spacing={1}>
                     <Rating name="size-Large" defaultValue={4} size="Large" />
                   </Stack>
@@ -391,7 +435,14 @@ const AnimeList = () => {
                     Trailer
                   </Button>
 
-                  <Button variant="contained">Play</Button>
+                  <Button variant="contained"
+                    onClick={() =>
+                      openTrailer(
+                        "https://youtu.be/4wp8kUrEDM4?si=KgG_LV3mz4AqEO78"
+                      )
+                    }
+                  >
+                    Play</Button>
                   <Stack spacing={1}>
                     <Rating name="size-Large" defaultValue={5} size="Large" />
                   </Stack>
@@ -428,7 +479,14 @@ const AnimeList = () => {
                     Trailer
                   </Button>
 
-                  <Button variant="contained">Play</Button>
+                  <Button variant="contained"
+                    onClick={() =>
+                      openTrailer(
+                        "https://youtu.be/yeUpnIKt6k4?si=D2FBKjSVd77Vs5SZ"
+                      )
+                    }
+                  >
+                    Play</Button>
                   <Stack spacing={1}>
                     <Rating name="size-Large" defaultValue={5} size="Large" />
                   </Stack>
@@ -461,7 +519,14 @@ const AnimeList = () => {
                     Trailer
                   </Button>
 
-                  <Button variant="contained">Play</Button>
+                  <Button variant="contained"
+                    onClick={() =>
+                      openTrailer(
+                        "https://youtu.be/bGc1Na8mlw0?si=p1Q9OOcESfqRzX9W"
+                      )
+                    }
+                  >
+                    Play</Button>
                   <Stack spacing={1}>
                     <Rating name="size-Large" defaultValue={2} size="Large" />
                   </Stack>
@@ -494,7 +559,14 @@ const AnimeList = () => {
                     Trailer
                   </Button>
 
-                  <Button variant="contained">Play</Button>
+                  <Button variant="contained"
+                    onClick={() =>
+                      openTrailer(
+                        "https://youtu.be/LqJQqcDQxBg?si=uacmgC65bdkRO9LS"
+                      )
+                    }
+                  >
+                    Play</Button>
                   <Stack spacing={1}>
                     <Rating name="size-Large" defaultValue={4} size="Large" />
                   </Stack>
@@ -527,7 +599,14 @@ const AnimeList = () => {
                     Trailer
                   </Button>
 
-                  <Button variant="contained">Play</Button>
+                  <Button variant="contained"
+                    onClick={() =>
+                      openTrailer(
+                        "https://youtu.be/Wipd9hjjyp8?si=mD2nMSQKqnh4z3K5"
+                      )
+                    }
+                  >
+                    Play</Button>
                   <Stack spacing={1}>
                     <Rating name="size-Large" defaultValue={3} size="Large" />
                   </Stack>
@@ -560,7 +639,14 @@ const AnimeList = () => {
                     Trailer
                   </Button>
 
-                  <Button variant="contained">Play</Button>
+                  <Button variant="contained"
+                    onClick={() =>
+                      openTrailer(
+                        "https://youtu.be/sxufB6DxXk0?si=2s5yyxPAMSfHraJ5"
+                      )
+                    }
+                  >
+                    Play</Button>
                   <Stack spacing={1}>
                     <Rating name="size-Large" defaultValue={5} size="Large" />
                   </Stack>

@@ -7,7 +7,7 @@ import ProfilePage from "../pages/ProfilePage";
 import AnimeList from "../pages/AnimeList";
 import ForumPage from "../pages/ForumPage";
 import SignUp from "../pages/SignUp.jsx";
-
+import MostPopular from "../pages/MostPopular.jsx";
 
 
 
@@ -21,6 +21,7 @@ function AppRoutes(props) {
       <Route path="anime" element={<AnimeList {...props} />} />
       <Route path="profile" element={<ProfilePage {...props} />} />
       <Route path="forum" element={<ForumPage {...props} />} />
+      <Route path="mostpopular" element={<MostPopular {...props} />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );

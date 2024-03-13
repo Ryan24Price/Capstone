@@ -85,16 +85,23 @@ export default function NavBar() {
             <MenuItem
               onClick={handleClose}
               component={NavLink}
-              to="/anime/comedy"
+              to="/mostpopular"
             >
               Most Popular
             </MenuItem>
             <MenuItem
               onClick={handleClose}
               component={NavLink}
-              to="/anime/romance"
+              to="/anime/stafffavorites"
             >
               Staff Favorites
+            </MenuItem>
+            <MenuItem
+              onClick={handleClose}
+              component={NavLink}
+              to="/anime/Downloads"
+            >
+              Downloads
             </MenuItem>
           </Menu>
           <Button
@@ -145,7 +152,7 @@ export default function NavBar() {
               <Search />
             </IconButton>
             <InputBase
-              placeholder="Search…"
+              placeholder="Search Anime…"
               inputProps={{ "aria-label": "search" }}
               style={{ paddingLeft: "10px" }}
             />
@@ -179,5 +186,4 @@ export default function NavBar() {
     </Box>
   );
 }
-
 
