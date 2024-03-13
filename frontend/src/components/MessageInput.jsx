@@ -149,13 +149,15 @@ const MessageInput = ({ onAddMessage }) => {
               {
                 existingPost?.data?.map((value) => (
                   <div style={{ marginTop: 100, color: 'black' }} key={value?._id}>
-                    <button onClick={(e) => handleUpdate(value)}> edit </button>
+                    <Button variant='contained' color='primary' style={{ marginTop: 20 }} 
+                    onClick={(e) => handleUpdate(value)}> edit </Button>
                     <div> {value.stories}</div>
                     <img src={`http://localhost:8080/${value?.image}`}
                       alt="Post Image"
                       style={{ maxWidth: '100%', height: 'auto' }}
                     />
-                    <button onClick={(e) => handleDelete(e, value?._id)}> Delete </button>
+                    <Button variant='contained' color='primary' style={{ marginTop: 20 }} 
+                    onClick={(e) => handleDelete(e, value?._id)}> Delete </Button>
                   </div>
 
                 )
@@ -169,3 +171,6 @@ const MessageInput = ({ onAddMessage }) => {
 };
 
 export default MessageInput;
+
+
+

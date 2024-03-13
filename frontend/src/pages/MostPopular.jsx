@@ -253,7 +253,7 @@ const MostPopular = () => {
                   <Button variant="contained"
                     onClick={() =>
                       openTrailer(
-                        "https://youtu.be/C4zPQDdpYMg?si=C2jJCmQ6pPPU_OX0"
+                        "https://youtu.be/J8bVxF815XA?si=yOEgwAnSlgzYz9iU"
                       )
                     }
                   >
