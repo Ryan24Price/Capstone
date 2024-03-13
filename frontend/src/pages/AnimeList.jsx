@@ -45,6 +45,19 @@ import image310 from "../assets/images/310.jpg";
 import image311 from "../assets/images/311.jpg";
 import image312 from "../assets/images/312.jpg";
 
+const carouselImages = [
+  image201, image202, image203, image204, image205,
+  image207, image208, image209, image210, image211,
+  image212, image213, image214, image220,
+];
+  
+  const flipCardImages = [
+  image301, image302, image303, image304, image305,
+  image306, image307, image308, image309, image310,
+  image311, image312,
+];
+
+
 // Example array of anime information
 const AnimeList = () => {
   const openTrailer = (url) => {
@@ -56,12 +69,8 @@ const AnimeList = () => {
   };
 
   const images = [
-    image201, image202, image203, image204, image205,
-    image207, image208, image209, image210, image211,
-    image212, image213, image214, image220,
-    image301, image302, image303, image304, image305,
-    image306, image307, image308, image309, image310,
-    image311, image312,
+    ...carouselImages,
+    ...flipCardImages
   ];
 
 
@@ -127,7 +136,7 @@ const AnimeList = () => {
       </head>
       <div>
       <Carousel>
-        {images.map((image, i) => (
+        {carouselImages.map((image, i) => (
           <img key={i} src={image} alt={`Anime ${i}`} style={{ width: "65%", height: "10%" }} />
         ))}
       </Carousel>
@@ -566,6 +575,5 @@ const AnimeList = () => {
 };
 
 export default AnimeList;
-
 
 
