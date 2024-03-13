@@ -17,6 +17,9 @@ app.use('/api/users', userRoutes)
 
 app.use('/api/posts', postRoutes)
 
+app.use('/uploads', express.static('uploads'))
+
+
 
 app.get("/", (req, res) => {
 res.json({ message: "Welcome to my Anime Streamer." });

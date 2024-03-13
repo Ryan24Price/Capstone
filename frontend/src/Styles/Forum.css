@@ -40,8 +40,12 @@
   .message-input input {
     width: calc(100% - 70px);
     padding: 5px 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #000;
     border-radius: 3px;
+  }
+
+  .message-input input:hover, input:focus {
+    border: 1px solid #333 !important;
   }
   
   /* Style for message send button */

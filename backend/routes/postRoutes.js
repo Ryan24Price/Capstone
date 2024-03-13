@@ -1,6 +1,21 @@
 let express = require("express");
+const multer = require("multer");
 let router = express.Router();
-let Controllers = require("../controllers"); // index.js
+let Controllers = require("../controllers"); 
+const path = require('path');
+
+
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) =>{
+    cb(null, 'uploads/');
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.originalname + file.fieldname + path.extname(file.originalname))
+  }
+})
+
+const upload = multer({storage: storage})
 
 // http://localhost:8080/api/posts/   Adds a GET route to return all posts
 router.get("/", (req, res) => {
@@ -9,12 +24,8 @@ router.get("/", (req, res) => {
 });
 
 // http://localhost:8080/api/posts/create   Adds a POST route to create a new post
-router.post("/create", (req, res) => {
-  console.log(
-    "POST /api/posts/create - Creating a new post with data:",
-    req.body
-  );
-  Controllers.postController.createPost(req.body, res);
+router.post("/create", upload.single('image'), (req, res) => {
+  Controllers.postController.createPost(req, res);
 });
 
 // http://localhost:8080/api/posts/<id>/comments   Adds a POST route to comment on a post
@@ -23,7 +34,7 @@ router.post("/:id/comments", (req, res) => {
 });
 
 // http://localhost:8080/api/posts/<id>   Adds a PUT route to update a post
-router.put("/:id", (req, res) => {
+router.put("/:id", upload.single('image'), (req, res) => {
   console.log(
     `PUT /api/posts/${req.params.id} - Updating post with data:`,
     req.body

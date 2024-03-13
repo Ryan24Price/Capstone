@@ -1,11 +1,19 @@
 "use strict";
 
+const { Post } = require("../models");
 let Models = require("../models"); // matches index.js
 
-const createPost = (data, res) => {
+const createPost = (req, res) => {
   // creates a new post using JSON data POSTed in request body
-  console.log(data);
-  new Models.Post(data)
+  console.log("fun request" ,req.body.stories);
+
+  const mypost = new Post({
+    image: req.file.path,
+    stories: req.body.stories
+  })
+
+
+  new Models.Post(mypost)
     .save()
     .then((data) => res.send({ result: 200, data: data }))
     .catch((err) => {
@@ -42,14 +50,26 @@ const getPostById = (req, res) => {
 };
 
 const updatePost = (req, res) => {
-  // updates the post matching the ID from the param using JSON data POSTed in request body
-  console.log(req.body);
-  Models.Post.findByIdAndUpdate(req.params.id, req.body, { new: true })
-    .then((data) => res.send({ result: 200, data: data }))
-    .catch((err) => {
-      console.log(err);
-      res.status(500).send({ result: 500, error: err.message });
-    });
+  console.log("Update request for post ID:", req.params.id);
+  let updateData = {
+      stories: req.body.stories,
+  };
+
+  if (req.file && req.file.path) {
+      updateData.image = req.file.path;
+  }
+
+  Models.Post.findByIdAndUpdate(req.params.id, updateData, { new: true })
+      .then((data) => {
+          if (!data) {
+              return res.status(404).send({ result: 404, message: "Post not found" });
+          }
+          res.send({ result: 200, data: data });
+      })
+      .catch((err) => {
+          console.log(err);
+          res.status(500).send({ result: 500, error: err.message });
+      });
 };
 
 // to like a post
